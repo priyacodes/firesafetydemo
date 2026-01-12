@@ -94,8 +94,11 @@ public class UXManager : MonoBehaviour
     }
     public void onEvacuationSuccessful()
     {
-        uiMgr.DisplayUIMsg(10);
+        //  uiMgr.DisplayUIMsg(10); 
+        SceneSwitcher.Instance.successfulEvacuation = true;
         nextMove.HideArrow();
+        SceneSwitcher.Instance.LoadThisScene("LobbyScene");
+        
     }
 
     public void CheckUserProgress()

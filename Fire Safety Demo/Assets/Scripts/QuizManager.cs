@@ -92,4 +92,9 @@ public class QuizManager : MonoBehaviour
         scoreText.text = score + "/5"; 
     }
 
+    public void ReturnToLobby()
+    {
+        SceneSwitcher.Instance.LoadThisScene("LobbyScene");
+    }
+
 }
