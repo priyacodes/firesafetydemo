@@ -78,6 +78,18 @@ using UnityEngine.Android;
             }
         }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F))
+            StartCoroutine(LoadSceneAsync("FireSimV2"));
 
+        if (Input.GetKeyDown(KeyCode.G))
+            StartCoroutine(LoadSceneAsync("GreenRoom"));
+
+        if (Input.GetKeyDown(KeyCode.L))
+            StartCoroutine(LoadSceneAsync("LobbyScene"));
     }
+
+
+}
 

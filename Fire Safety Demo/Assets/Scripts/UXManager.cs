@@ -10,6 +10,9 @@ public class UXManager : MonoBehaviour
 
     [SerializeField]
     ParticleSystem fireSmall, fireMed, fireBig;
+
+    public List<MeshRenderer> boxes;
+    public Material box1, box2;
     public bool fireStarted = false;
 
     [SerializeField]
@@ -76,9 +79,27 @@ public class UXManager : MonoBehaviour
 
     public void onFireExtinguished()
     {
+        ReplaceBoxMaterials();
         uiMgr.DisplayUIMsg(7);
+       
     }
 
+    public void ReplaceBoxMaterials()
+    {   
+        foreach(MeshRenderer mr in boxes)
+        {
+            int choice = Random.Range(1, 3);
+            if(choice == 1)
+            {
+                mr.material = box1;
+            }
+            else
+            {
+                mr.material = box2;
+            }
+        }
+        
+    }
     public void outOfControlAlert()
     {
         uiMgr.DisplayUIMsg(8);
