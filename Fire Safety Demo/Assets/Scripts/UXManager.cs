@@ -20,9 +20,9 @@ public class UXManager : MonoBehaviour
 
     bool canGrabEx = false, canRemovePin = false, canGrabNozzle = false;
     public bool canStartSpray = false, targetHit = false;
-    bool extinguisherGrabbed = false, pinRemoved = false, NozzleGrabbed = false, sprayingStarted = false, movedToTeleport = false; 
+    bool extinguisherGrabbed = false, pinRemoved = false, NozzleGrabbed = false, sprayingStarted = false, movedToTeleport = false;
 
- 
+    public SceneFader sceneFader;
 
  
     public void OnGrabFireExtinguisher()
@@ -81,9 +81,15 @@ public class UXManager : MonoBehaviour
     {
         ReplaceBoxMaterials();
         uiMgr.DisplayUIMsg(7);
-       
+        StartCoroutine(WaitAndSwitchtoLobby());
     }
 
+    IEnumerator WaitAndSwitchtoLobby()
+    {
+        yield return new WaitForSeconds(5);
+        SceneSwitcher.Instance.LoadThisScene("lobby _light");
+        sceneFader.FadeOut();
+    }
     public void ReplaceBoxMaterials()
     {   
         foreach(MeshRenderer mr in boxes)
@@ -118,8 +124,15 @@ public class UXManager : MonoBehaviour
         //  uiMgr.DisplayUIMsg(10); 
         SceneSwitcher.Instance.successfulEvacuation = true;
         nextMove.HideArrow();
-        SceneSwitcher.Instance.LoadThisScene("LobbyScene");
-        
+        SceneSwitcher.Instance.LoadThisScene("lobby _light");
+        sceneFader.FadeOut();
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+            onEvacuationSuccessful();
     }
 
     public void CheckUserProgress()

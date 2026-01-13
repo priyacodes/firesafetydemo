@@ -191,6 +191,8 @@ namespace GogoGaga.OptimizedRopesAndCables
                 }
             }
 
+
+
             // Generate vertices, triangles, and UVs for the start cap
             int startCapCenterIndex = vertices.Count;
             vertices.Add(transform.InverseTransformPoint(points[0]));

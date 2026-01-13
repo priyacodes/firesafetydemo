@@ -17,6 +17,7 @@ public class QuizManager : MonoBehaviour
     int rightOptionID;
 
     int score = 0, QID = 0;
+    public SceneFader sceneFader;
     private void Start()
     {
         AssignQuestionFromSO(QID);
@@ -94,7 +95,8 @@ public class QuizManager : MonoBehaviour
 
     public void ReturnToLobby()
     {
-        SceneSwitcher.Instance.LoadThisScene("LobbyScene");
+        SceneSwitcher.Instance.LoadThisScene("lobby _light");
+        sceneFader.FadeOut();
     }
 
 }

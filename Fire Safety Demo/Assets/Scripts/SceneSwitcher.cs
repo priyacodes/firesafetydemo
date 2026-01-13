@@ -60,6 +60,7 @@ using UnityEngine.Android;
         public void LoadThisScene(string name)
         {
             StartCoroutine(LoadSceneAsync(name));
+
         }
 
         public static IEnumerator LoadSceneAsync(string sceneName)
@@ -86,8 +87,8 @@ using UnityEngine.Android;
         if (Input.GetKeyDown(KeyCode.G))
             StartCoroutine(LoadSceneAsync("GreenRoom"));
 
-        if (Input.GetKeyDown(KeyCode.L))
-            StartCoroutine(LoadSceneAsync("LobbyScene"));
+        //if (Input.GetKeyDown(KeyCode.L))
+        //    StartCoroutine(LoadSceneAsync("LobbyScene"));
     }
 
 

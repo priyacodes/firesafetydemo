@@ -5,6 +5,7 @@ using UnityEngine;
 public class LobbySceneManager : MonoBehaviour
 {
     public GameObject UICanvas;
+    public SceneFader sceneFader;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +17,17 @@ public class LobbySceneManager : MonoBehaviour
     {
         SceneSwitcher.Instance.successfulEvacuation = val;
     }
- 
+    
+
+    public void GoToRedRoom()
+    {
+        SceneSwitcher.Instance.LoadThisScene("FireSimV2");
+        sceneFader.FadeOut();
+    }
+
+    public void GoToGreenRoom()
+    {
+        SceneSwitcher.Instance.LoadThisScene("GreenRoom");
+        sceneFader.FadeOut();
+    }
 }
